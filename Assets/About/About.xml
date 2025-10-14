@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>Compass Mod</Name>
+	<Author>lorexcold</Author>
+	<Version>0.2.5116.23239.1</Version>
+	<Description>
+		[h1]Compass Mod[/h1]
+		[b]WARNING:[/b] This is a Stationeers Launchpad Plugin Mod.
+		It requires BepInEx to be installed with the Stationeers Launchpad plugin.
+		Installation Guide: [url=https://github.com/StationeersLaunchPad/StationeersLaunchPad?tab=readme-ov-file#fresh][/url]
+
+		This mod adds a functional Compass UI to the game, showing your current heading at the top-center of the screen.
+
+		[h2]Features[/h2]
+		[list]
+		[*]Top-center compass display
+		[*]Displays current heading in degrees
+		[/list]
+
+		[h2]Requirements[/h2]
+		[list]
+		[*]StationeersLaunchPad with BepInEx installed.
+		[/list]
+	</Description>
+	<ChangeLog>
+		[h3]Version 1.0.0[/h3]
+		[list]
+		[*]Initial release of Compass Mod
+		[*]Top-center compass UI with heading display
+		[/list]
+	</ChangeLog>
+	<Tags>
+		<Tag>Utility</Tag>
+		<Tag>BepInEx</Tag>
+		<Tag>LaunchPad</Tag>
+		<Tag>UI</Tag>
+	</Tags>
+	<Dependencies />
+	<LoadBefore />
+	<LoadAfter />
+	<InGameDescription>
+		<![CDATA[
+<size=30><color=#ffa500> Compass Mod </color></size>
+WARNING: <color=#ff0000>This is a Stationeers LaunchPad Plugin Mod. It requires BepInEx to be installed with the Stationeers Launchpad plugin.</color>
+Installation Guide: <color=#0cb3f5>github.com/StationeersLaunchPad/StationeersLaunchPad</color>
+
+<color=#02d1fa>[FEATURES]</color>
+<color=#1380bf>•</color> Top-center compass UI
+<color=#1380bf>•</color> Displays current heading in degrees
+
+<color=#02d1fa>[REQUIREMENTS]</color>
+<color=#22c933>•</color> StationeersLaunchPad + BepInEx
+]]>
+	</InGameDescription>
+</ModMetadata>
