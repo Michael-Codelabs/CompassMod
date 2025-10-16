@@ -21,14 +21,17 @@
 		[list]
 		[*]StationeersLaunchPad with BepInEx installed.
 		[/list]
+		
 	</Description>
 	<ChangeLog>
-		[h3]Version 1.0.0[/h3]
+		[h3]Version 1.0.2[/h3]
 		[list]
-		[*]Initial release of Compass Mod
-		[*]Top-center compass UI with heading display
+		[*]Added Compass background
+		[*]Masked the strip so only a small part of the compass is visible at a time
+		[*]Made compass dissapear to the top when helmet is opened
 		[/list]
 	</ChangeLog>
+	<WorkshopHandle>3586857584</WorkshopHandle>
 	<Tags>
 		<Tag>Utility</Tag>
 		<Tag>BepInEx</Tag>
