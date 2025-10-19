@@ -24,11 +24,17 @@ namespace lorex
       if (window == null || !window.IsVisible || window.Parent == null)
         return;
 
-      var localplayer = Human.LocalHuman?.RootParentHuman;
+      var localplayer = Human.LocalHuman != null ? Human.LocalHuman.RootParentHuman : null;
       if (localplayer == null)
         return;
 
       bool showHud = localplayer.InternalsOn;
+
+      if (localplayer.SpeciesClass == CharacterCustomisation.SpeciesClass.Robot)
+      {
+        showHud = true;
+      }
+
       float targetY = showHud ? visibleY : hiddenY;
 
       Vector2 currentPos = CompassRect.anchoredPosition;

@@ -15,20 +15,25 @@
 		[list]
 		[*]Top-center compass display
 		[*]Displays current heading in degrees
+		[*]Humans &amp; Zrillians need to wear a helmet to see the compass HUD.
 		[/list]
 
 		[h2]Requirements[/h2]
 		[list]
 		[*]StationeersLaunchPad with BepInEx installed.
 		[/list]
+
+		[h2]Extra Credits[/h2]
+		[list]
+		[*]Thyra | Suggested we make the hud disappear when helmet is open or when not wearing one.
+		[*]Tallinu | Reported back that hud wasn't working for robots not wearing helmets
+		[/list
 		
 	</Description>
 	<ChangeLog>
-		[h3]Version 1.0.2[/h3]
+		[h3]Version 1.0.3[/h3]
 		[list]
-		[*]Added Compass background
-		[*]Masked the strip so only a small part of the compass is visible at a time
-		[*]Made compass dissapear to the top when helmet is opened
+		[*]Made it so robots don't need to wear a helmet to see the compass HUD.
 		[/list]
 	</ChangeLog>
 	<WorkshopHandle>3586857584</WorkshopHandle>
@@ -50,6 +55,7 @@ Installation Guide: <color=#0cb3f5>github.com/StationeersLaunchPad/StationeersLa
 <color=#02d1fa>[FEATURES]</color>
 <color=#1380bf>•</color> Top-center compass UI
 <color=#1380bf>•</color> Displays current heading in degrees
+<color=#1380bf>•</color> Humans & Zrillians need to wear a helmet to see the compass HUD.
 
 <color=#02d1fa>[REQUIREMENTS]</color>
 <color=#22c933>•</color> StationeersLaunchPad + BepInEx
