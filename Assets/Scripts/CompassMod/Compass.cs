@@ -1,7 +1,9 @@
+using Assets.Scripts;
+using Assets.Scripts.GridSystem;
 using Assets.Scripts.Objects;
 using Assets.Scripts.Objects.Entities;
 using Assets.Scripts.UI;
-using TMPro;
+using Assets.Scripts.Vehicles;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,23 +16,63 @@ namespace lorex
     public RectTransform CompassRect;
     public RectTransform CompassBackGround;
 
-    private float visibleY = 0f;   // when InternalsOn = true
-    private float hiddenY = 60f;   // when InternalsOn = false
+    private float visibleY = 0f;
+    private float hiddenY = 60f;
     private float lerpSpeed = 5f;
+
+    private string cachedCustomName;
+    private PlayerStateWindow window;
 
     private void Update()
     {
-      var window = PlayerStateWindow.Instance;
+      if (window == null)
+      {
+        window = PlayerStateWindow.Instance;
+        if (window == null)
+          return;
+      }
+
+      if (GameManager.GameState == GameState.Running && string.IsNullOrEmpty(cachedCustomName))
+      {
+        if (Human.LocalHuman != null)
+          cachedCustomName = Human.LocalHuman.CustomName;
+      }
+
       if (window == null || !window.IsVisible || window.Parent == null)
         return;
 
-      var localplayer = Human.LocalHuman != null ? Human.LocalHuman.RootParentHuman : null;
+      Human localplayer = Human.LocalHuman != null ? Human.LocalHuman.RootParentHuman : null;
+
+      if (localplayer == null && !string.IsNullOrEmpty(cachedCustomName))
+      {
+        foreach (var rover in Rover.AllRovers)
+        {
+          if (rover == null)
+            continue;
+
+          var driver = rover.DriverSlot?.Get<Human>();
+          if (driver != null && driver.CustomName == cachedCustomName)
+          {
+            localplayer = driver;
+            break;
+          }
+
+          var passenger = rover.PassengerSlot?.Get<Human>();
+          if (passenger != null && passenger.CustomName == cachedCustomName)
+          {
+            localplayer = passenger;
+            break;
+          }
+        }
+      }
+
       if (localplayer == null)
         return;
 
       bool showHud = localplayer.InternalsOn;
 
-      if (localplayer.SpeciesClass == CharacterCustomisation.SpeciesClass.Robot)
+      if (localplayer.SpeciesClass == CharacterCustomisation.SpeciesClass.Robot ||
+          localplayer.SpeciesClass == CharacterCustomisation.SpeciesClass.None)
       {
         showHud = true;
       }
@@ -57,14 +99,11 @@ namespace lorex
         float num = EulerAnglesY(window.Parent);
         CompassImage.uvRect = new Rect(num / 360f, 0f, 1f, 1f);
       }
-      else
+      else if (currentPos.y >= 30)
       {
-        if (currentPos.y >= 30)
-        {
-          CompassImage.enabled = false;
-          if (CompassBackGround != null)
-            CompassBackGround.gameObject.SetActive(false);
-        }
+        CompassImage.enabled = false;
+        if (CompassBackGround != null)
+          CompassBackGround.gameObject.SetActive(false);
       }
     }
 

@@ -27,13 +27,14 @@
 		[list]
 		[*]Thyra | Suggested we make the hud disappear when helmet is open or when not wearing one.
 		[*]Tallinu | Reported back that hud wasn't working for robots not wearing helmets
+		[*]Aedda | Reported compass doesn't update in rover.
 		[/list
-		
+
 	</Description>
 	<ChangeLog>
-		[h3]Version 1.0.3[/h3]
+		[h3]Version 1.0.4[/h3]
 		[list]
-		[*]Made it so robots don't need to wear a helmet to see the compass HUD.
+		[*]Fixed compass doesn't update in rover
 		[/list]
 	</ChangeLog>
 	<WorkshopHandle>3586857584</WorkshopHandle>
